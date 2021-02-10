@@ -32,7 +32,7 @@ namespace store_management_system
             InitializeComponent();
             GetProducts();
 
-            /*AddNewProductGrid.DataContext = NewProduct;*/
+            AddNewProductGrid.DataContext = NewProduct;
         }
 
         private void GetProducts()
@@ -40,7 +40,7 @@ namespace store_management_system
             ProductDG.ItemsSource = dbContext.Products.ToList();
         }
 
-        /*private void AddProduct(object s, RoutedEventArgs e)
+        private void AddProduct(object s, RoutedEventArgs e)
         {
             dbContext.Products.Add(NewProduct);
             dbContext.SaveChanges();
@@ -55,7 +55,7 @@ namespace store_management_system
             selectedProduct = (s as FrameworkElement).DataContext as Product;
             UpdateProductGrid.DataContext = selectedProduct;
         }
-
+        
         private void UpdateProduct(object s, RoutedEventArgs e)
         {
             dbContext.Update(selectedProduct);
@@ -69,6 +69,6 @@ namespace store_management_system
             dbContext.Products.Remove(productToBeDeleted);
             dbContext.SaveChanges();
             GetProducts();
-        }*/
+        }
     }
 }
