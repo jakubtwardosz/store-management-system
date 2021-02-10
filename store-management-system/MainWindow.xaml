@@ -5,124 +5,142 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:store_management_system"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Store managment system" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="CRUD operation in SQLite"/>
-        
-        <DataGrid Grid.Row="1" AutoGenerateColumns="False" Margin="5" Name="ProductDG" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Product Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-                <DataGridTextColumn Header="Unit" Binding="{Binding Unit}"/>
+        <Label Grid.Row="0" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Store managment system"/>
 
-                <DataGridTemplateColumn Header="Update Product">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Edit" Click="UpdateProductForEdit"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn Header="Delete Product">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Delete" Click="DeleteProduct"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <TabControl Grid.Row="1">
+            <TabItem Header="Products">
 
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-            <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="5">
-                <StackPanel>
-                    <Label Content="Add new product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <DataGrid Grid.Row="0" AutoGenerateColumns="False" Margin="5" Name="ProductDG" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Product Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                            <DataGridTextColumn Header="Unit" Binding="{Binding Unit}"/>
 
-                    <Grid Margin="5" x:Name="AddNewProductGrid">
+                            <DataGridTemplateColumn Header="Update Product">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Edit" Click="UpdateProductForEdit"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="Delete Product">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Delete" Click="DeleteProduct"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="5">
+                            <StackPanel>
+                                <Label Content="Add new product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                        <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
-                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+                                <Grid Margin="5" x:Name="AddNewProductGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
 
-                        <Label Grid.Row="1" Grid.Column="0" Content="Description"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"/>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
 
-                        <Label Grid.Row="2" Grid.Column="0" Content="Price"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
 
-                        <Label Grid.Row="3" Grid.Column="0" Content="Unit"/>
-                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Unit}"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Description"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"/>
 
-                        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Add" Margin="5" Click="AddProduct"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Content="Price"/>
+                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}"/>
 
-                    </Grid>                    
-                </StackPanel>
-                
-                
-            </Border>
+                                    <Label Grid.Row="3" Grid.Column="0" Content="Unit"/>
+                                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Unit}"/>
 
+                                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Add" Margin="5" Click="AddProduct"/>
 
-            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5">
-                <StackPanel>
-                    <Label Content="Update product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                            </StackPanel>
 
-                    <Grid Margin="5" x:Name="UpdateProductGrid">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+                        </Border>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
+                        <Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5">
+                            <StackPanel>
+                                <Label Content="Update product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                        <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
-                        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+                                <Grid Margin="5" x:Name="UpdateProductGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
 
-                        <Label Grid.Row="1" Grid.Column="0" Content="Description"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"/>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
 
-                        <Label Grid.Row="2" Grid.Column="0" Content="Price"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
 
-                        <Label Grid.Row="3" Grid.Column="0" Content="Unit"/>
-                        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Unit}"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Description"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"/>
 
-                        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Update" Margin="5" Click="UpdateProduct"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Content="Price"/>
+                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}"/>
+
+                                    <Label Grid.Row="3" Grid.Column="0" Content="Unit"/>
+                                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Unit}"/>
+
+                                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Update" Margin="5" Click="UpdateProduct"/>
+
+                                </Grid>
+                            </StackPanel>
+                        </Border>
 
                     </Grid>
-                </StackPanel>
-            </Border>
 
-        </Grid>
+                </Grid>
+
+            </TabItem>
+            
+            <TabItem Header="Employees">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            
+        </TabControl>
         
     </Grid>
+    
 </Window>
+
