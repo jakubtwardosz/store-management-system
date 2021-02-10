@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using store_management_system.Data;
 
 namespace store_management_system
 {
@@ -20,9 +21,54 @@ namespace store_management_system
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        // Nie rekomendowane, powinniśmy korzystać z MVVM patern
+
+        ProductDbContext dbContext;
+        Product NewProduct = new Product();
+
+        public MainWindow(ProductDbContext dbContext)
         {
+            this.dbContext = dbContext;
             InitializeComponent();
+            GetProducts();
+
+            /*AddNewProductGrid.DataContext = NewProduct;*/
         }
+
+        private void GetProducts()
+        {
+            ProductDG.ItemsSource = dbContext.Products.ToList();
+        }
+
+        /*private void AddProduct(object s, RoutedEventArgs e)
+        {
+            dbContext.Products.Add(NewProduct);
+            dbContext.SaveChanges();
+            GetProducts();
+            NewProduct = new Product();
+            AddNewProductGrid.DataContext = NewProduct;
+        }
+
+        Product selectedProduct = new Product();
+        private void UpdateProductForEdit(object s, RoutedEventArgs e)
+        {
+            selectedProduct = (s as FrameworkElement).DataContext as Product;
+            UpdateProductGrid.DataContext = selectedProduct;
+        }
+
+        private void UpdateProduct(object s, RoutedEventArgs e)
+        {
+            dbContext.Update(selectedProduct);
+            dbContext.SaveChanges();
+            GetProducts();
+        }
+
+        private void DeleteProduct(object s, RoutedEventArgs e)
+        {
+            var productToBeDeleted = (s as FrameworkElement).DataContext as Product;
+            dbContext.Products.Remove(productToBeDeleted);
+            dbContext.SaveChanges();
+            GetProducts();
+        }*/
     }
 }

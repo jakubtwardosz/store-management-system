@@ -21,7 +21,7 @@ namespace store_management_system
         public App()
         {
             ServiceCollection services = new ServiceCollection();
-            services.AddDbContext<ProductDBContext>(option =>
+            services.AddDbContext<ProductDbContext>(option =>
             {
                 option.UseSqlite("Data Source = Product.db");
             });
@@ -30,11 +30,10 @@ namespace store_management_system
             serviceProvider = services.BuildServiceProvider();
         }
 
-        private void OnStartup (object s, StartupEventArgs e)
+        private void OnStartup(object s, StartupEventArgs e)
         {
             var mainWindow = serviceProvider.GetService<MainWindow>();
             mainWindow.Show();
         }
-
     }
 }
