@@ -23,7 +23,7 @@ namespace store_management_system
             ServiceCollection services = new ServiceCollection();
             services.AddDbContext<StoreDbContext>(option =>
             {
-                option.UseSqlite("Data Source = Product.db");
+                option.UseSqlite("Data Source = StoreDB.db");
             });
 
             services.AddSingleton<MainWindow>();
@@ -32,6 +32,7 @@ namespace store_management_system
 
         private void OnStartup(object s, StartupEventArgs e)
         {
+            
             var mainWindow = serviceProvider.GetService<MainWindow>();
             mainWindow.Show();
         }

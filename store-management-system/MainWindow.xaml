@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:store_management_system"
         mc:Ignorable="d"
-        Title="Store managment system" Height="450" Width="800">
+        Title="Store managment system" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -16,7 +16,7 @@
 
         <TabControl Grid.Row="1">
 
-            <TabItem Header="Brands">
+            <!--<TabItem Header="Brands">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
 
@@ -35,7 +35,7 @@
             <TabItem Header="Orders">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-
+            -->
             <TabItem Header="Products">
 
                 <Grid Background="#FFE5E5E5">
@@ -46,11 +46,12 @@
 
                     <DataGrid Grid.Row="0" AutoGenerateColumns="False" Margin="5" Name="ProductDG" IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Product Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Product id" Binding="{Binding ProductId}"/>
                             <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Brand id" Binding="{Binding BrandId}"/>
+                            <DataGridTextColumn Header="Category id" Binding="{Binding CategoryId}"/>
                             <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-                            <DataGridTextColumn Header="Unit" Binding="{Binding Unit}"/>
+                            <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}"/>
 
                             <DataGridTemplateColumn Header="Update Product">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -81,6 +82,7 @@
                                 <Label Content="Add new product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
                                 <Grid Margin="5" x:Name="AddNewProductGrid">
+                                    
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
@@ -92,21 +94,30 @@
                                         <RowDefinition/>
                                         <RowDefinition/>
                                         <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                     </Grid.RowDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
-                                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Product id"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ProductId}"/>
 
-                                    <Label Grid.Row="1" Grid.Column="0" Content="Description"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Name"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name}"/>
 
-                                    <Label Grid.Row="2" Grid.Column="0" Content="Price"/>
-                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Content="Brand id"/>
+                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding BrandId}"/>
 
-                                    <Label Grid.Row="3" Grid.Column="0" Content="Unit"/>
-                                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Unit}"/>
+                                    <Label Grid.Row="3" Grid.Column="0" Content="Category id"/>
+                                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CategoryId}"/>
 
-                                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Add" Margin="5" Click="AddProduct"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Content="Price"/>
+                                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Price}"/>
+
+                                    <Label Grid.Row="5" Grid.Column="0" Content="Quantity"/>
+                                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Quantity}"/>
+
+
+                                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Add" Margin="5" Click="AddProduct"/>
 
                                 </Grid>
                             </StackPanel>
@@ -129,21 +140,30 @@
                                         <RowDefinition/>
                                         <RowDefinition/>
                                         <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
                                     </Grid.RowDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Content="Name"/>
-                                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Product id"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ProductId}"/>
 
-                                    <Label Grid.Row="1" Grid.Column="0" Content="Description"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Content="Name"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name}"/>
 
-                                    <Label Grid.Row="2" Grid.Column="0" Content="Price"/>
-                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}"/>
+                                    <Label Grid.Row="2" Grid.Column="0" Content="Brand id"/>
+                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding BrandId}"/>
 
-                                    <Label Grid.Row="3" Grid.Column="0" Content="Unit"/>
-                                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Unit}"/>
+                                    <Label Grid.Row="3" Grid.Column="0" Content="Category id"/>
+                                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CategoryId}"/>
 
-                                    <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Update" Margin="5" Click="UpdateProduct"/>
+                                    <Label Grid.Row="4" Grid.Column="0" Content="Price"/>
+                                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Price}"/>
+
+                                    <Label Grid.Row="5" Grid.Column="0" Content="Quantity"/>
+                                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Quantity}"/>
+
+
+                                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Update" Margin="5" Click="UpdateProduct"/>
 
                                 </Grid>
                             </StackPanel>

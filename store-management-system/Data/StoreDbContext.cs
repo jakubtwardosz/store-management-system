@@ -15,21 +15,31 @@ namespace store_management_system.Data
         public DbSet<Products> Products { get; set; }
 
 
-
         public StoreDbContext(DbContextOptions<StoreDbContext> options) : base(options)
         {
             Database.EnsureCreated();
         }
 
-        public DbSet<Products> Products { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite("Data Source=StoreDB.db;");
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            /*
             modelBuilder.Entity<Products>().HasData(GetProducts());
             base.OnModelCreating(modelBuilder);
+            */
+            modelBuilder.Entity<Brands>().ToTable("brands");
+            modelBuilder.Entity<Category>().ToTable("category");
+            modelBuilder.Entity<Customers>().ToTable("customers");
+            modelBuilder.Entity<OrderItems>().ToTable("order_items");
+            modelBuilder.Entity<Products>().ToTable("products");
         }
 
-        private Products[] GetProducts()
+        /*private Products[] GetProducts()
         {
             return new Products[]
             {
@@ -38,6 +48,6 @@ namespace store_management_system.Data
                 new Products { Id = 3, Name = "Spodnie", Description = "Nike", Price = 39.99, Unit = 20 },
                 new Products { Id = 4, Name = "Czapka", Description = "Umbro", Price = 19.99, Unit = 9 }
             };
-        }
+        }*/
     }
 }
