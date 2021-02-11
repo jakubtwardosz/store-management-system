@@ -21,7 +21,7 @@ namespace store_management_system
         public App()
         {
             ServiceCollection services = new ServiceCollection();
-            services.AddDbContext<ProductDbContext>(option =>
+            services.AddDbContext<StoreDbContext>(option =>
             {
                 option.UseSqlite("Data Source = Product.db");
             });

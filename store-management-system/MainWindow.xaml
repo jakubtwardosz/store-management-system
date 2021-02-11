@@ -15,6 +15,27 @@
         <Label Grid.Row="0" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Center" Content="Store managment system"/>
 
         <TabControl Grid.Row="1">
+
+            <TabItem Header="Brands">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+
+            <TabItem Header="Category">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+
+            <TabItem Header="Customers">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+
+            <TabItem Header="Order items">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+
+            <TabItem Header="Orders">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+
             <TabItem Header="Products">
 
                 <Grid Background="#FFE5E5E5">
@@ -132,12 +153,8 @@
 
                 </Grid>
 
-            </TabItem>
-            
-            <TabItem Header="Employees">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            
+            </TabItem>           
+
         </TabControl>
         
     </Grid>

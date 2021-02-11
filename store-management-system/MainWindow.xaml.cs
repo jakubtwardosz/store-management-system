@@ -23,10 +23,10 @@ namespace store_management_system
     {
         // Nie rekomendowane, powinniśmy korzystać z MVVM patern
 
-        ProductDbContext dbContext;
-        Product NewProduct = new Product();
+        StoreDbContext dbContext;
+        Products NewProduct = new Products();
 
-        public MainWindow(ProductDbContext dbContext)
+        public MainWindow(StoreDbContext dbContext)
         {
             this.dbContext = dbContext;
             InitializeComponent();
@@ -45,14 +45,14 @@ namespace store_management_system
             dbContext.Products.Add(NewProduct);
             dbContext.SaveChanges();
             GetProducts();
-            NewProduct = new Product();
+            NewProduct = new Products();
             AddNewProductGrid.DataContext = NewProduct;
         }
 
-        Product selectedProduct = new Product();
+        Products selectedProduct = new Products();
         private void UpdateProductForEdit(object s, RoutedEventArgs e)
         {
-            selectedProduct = (s as FrameworkElement).DataContext as Product;
+            selectedProduct = (s as FrameworkElement).DataContext as Products;
             UpdateProductGrid.DataContext = selectedProduct;
         }
         
@@ -65,7 +65,7 @@ namespace store_management_system
 
         private void DeleteProduct(object s, RoutedEventArgs e)
         {
-            var productToBeDeleted = (s as FrameworkElement).DataContext as Product;
+            var productToBeDeleted = (s as FrameworkElement).DataContext as Products;
             dbContext.Products.Remove(productToBeDeleted);
             dbContext.SaveChanges();
             GetProducts();
