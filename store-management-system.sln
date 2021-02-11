@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "store-management-system", "store-management-system\store-management-system.csproj", "{4DE92D3B-037D-45C4-916E-D2D831231201}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "store-management-system-old", "store-management-system\store-management-system-old.csproj", "{4DE92D3B-037D-45C4-916E-D2D831231201}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "store-management-system-final", "store-management-system-final\store-management-system-final.csproj", "{77DFB5F3-0168-49A5-AA9D-769CAE3FFB95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4DE92D3B-037D-45C4-916E-D2D831231201}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DE92D3B-037D-45C4-916E-D2D831231201}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DE92D3B-037D-45C4-916E-D2D831231201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77DFB5F3-0168-49A5-AA9D-769CAE3FFB95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77DFB5F3-0168-49A5-AA9D-769CAE3FFB95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77DFB5F3-0168-49A5-AA9D-769CAE3FFB95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77DFB5F3-0168-49A5-AA9D-769CAE3FFB95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
