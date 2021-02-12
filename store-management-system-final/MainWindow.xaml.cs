@@ -23,6 +23,46 @@ namespace store_management_system_final
         public MainWindow()
         {
             InitializeComponent();
+
+            StoreDBEntities db = new StoreDBEntities();
+
+            var products = from p in db.products
+                           select new
+                           {
+                               ProductName = p.product_name,
+                               Price = p.price,
+                               Quantity = p.quantity,
+                               Brand = p.brands,
+                               Category = p.category
+                           };
+
+            this.productGridData.ItemsSource = products.ToList();
+        }
+
+        private void AddProduct(object s, RoutedEventArgs e)
+        {
+            StoreDBEntities db = new StoreDBEntities();
+
+            /*
+
+            products productsObject = new products()
+            {
+                product_name = addNewProductName.Text;
+                price = addNewProductPrice.Text;
+                quantity = addNewProductQuantity.Text;
+
+            }
+
+            db.
+
+            db.Save*/
+
+            /*
+            dbContext.Products.Add(NewProduct);
+            dbContext.SaveChanges();
+            GetProducts();
+            NewProduct = new Products();
+            AddNewProductGrid.DataContext = NewProduct;*/
         }
     }
 }
