@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:store_management_system_final"
         mc:Ignorable="d"
         Title="Store managment system" Height="450" Width="800">
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
@@ -78,7 +78,7 @@
 
 
 
-            <!--
+            
             <TabItem Header="Category">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
@@ -196,7 +196,7 @@
 
                     </Grid>
                 </Grid>
-            </TabItem>-->
+            </TabItem>
         </TabControl>
-    </Grid>
+    </Grid>-->
 </Window>

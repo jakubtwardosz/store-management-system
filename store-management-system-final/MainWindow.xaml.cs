@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +36,7 @@ namespace store_management_system_final
 
             this.BrandsDataGrid.ItemsSource = brands.ToList();
 
-            /*var products = from p in db.products
+            *//*var products = from p in db.products
                            select new
                            {
                                ProductName = p.product_name,
@@ -46,7 +46,7 @@ namespace store_management_system_final
                                Category = p.category
                            };
 
-            this.productGridData.ItemsSource = products.ToList();*/
+            this.productGridData.ItemsSource = products.ToList();*//*
         }
 
         private void AddBrand(object s, RoutedEventArgs e)
@@ -69,7 +69,7 @@ namespace store_management_system_final
             this.BrandsDataGrid.ItemsSource = db.brands.ToList();
         }
 
-        /*private int updatingBrandID = 0;*/
+        *//*private int updatingBrandID = 0;*//*
         private void brandsGridDataSelectionChanged(object s, SelectionChangedEventArgs e)
         {
             brands brands = new brands();
@@ -83,7 +83,7 @@ namespace store_management_system_final
                 MessageBox.Show(brands.brand_name);
             }
 
-            /* if (this.BrandsDataGrid.SelectedIndex >= 0 && this.BrandsDataGrid.SelectedItems.Count >= 0)
+            *//* if (this.BrandsDataGrid.SelectedIndex >= 0 && this.BrandsDataGrid.SelectedItems.Count >= 0)
               {
 
                       brands b = (brands)this.BrandsDataGrid.SelectedItems[0];
@@ -97,7 +97,7 @@ namespace store_management_system_final
             {
                 member = obj as Member;
                 str += "DepartmetId : " + member.DepartmetId + "   EmployeeId:" + member.EmployeeId + "  Name:" + member.Name + "  Address:" + member.Address + "  Email:" + member.Email + "\n";
-            }*/
+            }*//*
         }
 
         private void MyDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -160,7 +160,7 @@ namespace store_management_system_final
 
 
 
-        /* private void GetProducts()
+        *//* private void GetProducts()
          {
              StoreDBEntities db = new StoreDBEntities();
              this.productGridData.ItemsSource = db.products.ToList();
@@ -202,8 +202,9 @@ namespace store_management_system_final
              }
 
              db.SaveChanges();
-         }*/
+         }*//*
 
 
     }
 }
+*/
