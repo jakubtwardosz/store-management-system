@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:store_management_system_final"
         mc:Ignorable="d"
-        Title="Store managment system" Height="500" Width="800">
+        Title="Store managment system" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -16,10 +16,69 @@
 
         <TabControl Grid.Row="1">
 
-            <!--<TabItem Header="Brands">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Brands">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <DataGrid Grid.Row="0" Margin="5" x:Name="BrandsDataGrid" SelectionChanged="brandsGridDataSelectionChanged"/>
+
+                    <Grid Grid.Row="1">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1" Margin="5">
+                            <StackPanel>
+                                <Label Content="Brand" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Grid Margin="5" x:Name="TextBoxBrandGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0" Grid.Column="0" Content="Name" Margin="0,5,0,5"/>
+                                    <TextBox x:Name="TextBoxBrand" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5">
+                            <StackPanel>
+                                <Label Content="Actions" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Grid Margin="5" x:Name="ActionsBrandGrid">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Button Content="Create" Grid.Column="0" Grid.Row="0" Click="AddBrand" Padding="5"/>
+                                    <Button Content="Read" Grid.Column="1" Grid.Row="0" Click="ReadBrand" Padding="5"/>
+                                    <Button Content="Update" Grid.Column="0" Grid.Row="3" Click="UpdateBrand" Padding="5" Margin="0,10,0,-38"/>
+                                    <Button Content="Delete" Grid.Column="1" Grid.Row="3" Click="DeleteBrand" Padding="5" Margin="0,10,0,-38"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
             </TabItem>
 
+
+
+
+            <!--
             <TabItem Header="Category">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
@@ -36,7 +95,10 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
             -->
-            <TabItem Header="Products">
+
+
+
+            <!--<TabItem Header="Products">
 
                 <Grid Background="#FFE5E5E5">
                     <Grid.RowDefinitions>
@@ -79,16 +141,15 @@
                                     <Label Grid.Row="2" Grid.Column="0" Content="Quantity" Margin="0,5,0,5"/>
                                     <TextBox x:Name="addNewProductQuantity" Grid.Row="2" Grid.Column="1" Margin="0,5,0,5"/>
 
-                                    <!--TO DO: brand list, category list-->
 
-                                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Add" Click="addNewProduct" Margin="0,5,0,5" Padding="5"/>
+                                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Add" Click="AddProduct" Margin="0,5,0,5" Padding="5"/>
 
                                 </Grid>
                             </StackPanel>
 
-                        </Border>
+                        </Border> -->
 
-                        <!--<Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5">
+            <!--<Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5">
                             <StackPanel>
                                 <Label Content="Update product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
@@ -131,11 +192,11 @@
 
                                 </Grid>
                             </StackPanel>
-                        </Border>-->
+                        </Border>
 
                     </Grid>
                 </Grid>
-            </TabItem>
+            </TabItem>-->
         </TabControl>
     </Grid>
 </Window>

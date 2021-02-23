@@ -17,9 +17,9 @@ namespace store_management_system_final
         public Nullable<int> order_id { get; set; }
         public int item_id { get; set; }
         public Nullable<int> product_id { get; set; }
-        public Nullable<int> quantity { get; set; }
+        public Nullable<int> order_items_quantity { get; set; }
         public Nullable<int> list_price { get; set; }
-        public Nullable<int> discount { get; set; }
+        public Nullable<int> order_items_discount { get; set; }
     
         public virtual orders orders { get; set; }
         public virtual products products { get; set; }

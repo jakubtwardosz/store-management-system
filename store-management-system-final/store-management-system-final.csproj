@@ -164,11 +164,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="StoreDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="StoreDB_log.ldf">
       <DependentUpon>StoreDB.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="StoreManagementSystemModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

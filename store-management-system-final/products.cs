@@ -24,8 +24,8 @@ namespace store_management_system_final
         public string product_name { get; set; }
         public Nullable<int> brand_id { get; set; }
         public Nullable<int> category_id { get; set; }
-        public int price { get; set; }
-        public Nullable<int> quantity { get; set; }
+        public int product_price { get; set; }
+        public Nullable<int> product_quantity { get; set; }
     
         public virtual brands brands { get; set; }
         public virtual category category { get; set; }
