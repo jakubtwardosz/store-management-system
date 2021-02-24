@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:store_management_system_final"
         mc:Ignorable="d"
         Title="Store managment system" Height="450" Width="800">
-    <!--<Grid>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition/>
@@ -74,129 +74,6 @@
                     </Grid>
                 </Grid>
             </TabItem>
-
-
-
-
-            
-            <TabItem Header="Category">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-
-            <TabItem Header="Customers">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-
-            <TabItem Header="Order items">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-
-            <TabItem Header="Orders">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            -->
-
-
-
-            <!--<TabItem Header="Products">
-
-                <Grid Background="#FFE5E5E5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <DataGrid Grid.Row="0" Margin="5" x:Name="productGridData" IsReadOnly="True"></DataGrid>
-
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1" Margin="5">
-                            <StackPanel>
-                                <Label Content="Add new product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                <Grid Margin="5" x:Name="addNewProductGrid">
-
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-
-                                    <Label Grid.Row="0" Grid.Column="0" Content="Name" Margin="0,5,0,5"/>
-                                    <TextBox x:Name="addNewProductName" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"/>
-
-                                    <Label Grid.Row="1" Grid.Column="0" Content="Price" Margin="0,5,0,5"/>
-                                    <TextBox x:Name="addNewProductPrice" Grid.Row="1" Grid.Column="1" Margin="0,5,0,5"/>
-
-                                    <Label Grid.Row="2" Grid.Column="0" Content="Quantity" Margin="0,5,0,5"/>
-                                    <TextBox x:Name="addNewProductQuantity" Grid.Row="2" Grid.Column="1" Margin="0,5,0,5"/>
-
-
-                                    <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Add" Click="AddProduct" Margin="0,5,0,5" Padding="5"/>
-
-                                </Grid>
-                            </StackPanel>
-
-                        </Border> -->
-
-            <!--<Border Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="5">
-                            <StackPanel>
-                                <Label Content="Update product" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                                <Grid Margin="5" x:Name="UpdateProductGrid">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-
-                                    <Label Grid.Row="0" Grid.Column="0" Content="Product id"/>
-                                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding ProductId}"/>
-
-                                    <Label Grid.Row="1" Grid.Column="0" Content="Name"/>
-                                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Name}"/>
-
-                                    <Label Grid.Row="2" Grid.Column="0" Content="Brand id"/>
-                                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding BrandId}"/>
-
-                                    <Label Grid.Row="3" Grid.Column="0" Content="Category id"/>
-                                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding CategoryId}"/>
-
-                                    <Label Grid.Row="4" Grid.Column="0" Content="Price"/>
-                                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Price}"/>
-
-                                    <Label Grid.Row="5" Grid.Column="0" Content="Quantity"/>
-                                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Quantity}"/>
-
-
-                                    <Button Grid.Row="6" Grid.ColumnSpan="2" Content="Update" Margin="5" Click="UpdateProduct"/>
-
-                                </Grid>
-                            </StackPanel>
-                        </Border>
-
-                    </Grid>
-                </Grid>
-            </TabItem>
         </TabControl>
-    </Grid>-->
+    </Grid>
 </Window>

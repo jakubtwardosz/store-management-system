@@ -1,4 +1,4 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,18 +35,6 @@ namespace store_management_system_final
 
 
             this.BrandsDataGrid.ItemsSource = brands.ToList();
-
-            *//*var products = from p in db.products
-                           select new
-                           {
-                               ProductName = p.product_name,
-                               Price = p.product_price,
-                               Quantity = p.product_quantity,
-                               Brand = p.brands,
-                               Category = p.category
-                           };
-
-            this.productGridData.ItemsSource = products.ToList();*//*
         }
 
         private void AddBrand(object s, RoutedEventArgs e)
@@ -69,8 +57,33 @@ namespace store_management_system_final
             this.BrandsDataGrid.ItemsSource = db.brands.ToList();
         }
 
-        *//*private int updatingBrandID = 0;*//*
         private void brandsGridDataSelectionChanged(object s, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void UpdateBrand(object s, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteBrand(object s, RoutedEventArgs e)
+        {
+
+        }
+
+
+
+    }
+}
+
+
+
+
+
+
+
+        /*private void brandsGridDataSelectionChanged(object s, SelectionChangedEventArgs e)
         {
             brands brands = new brands();
             brands = (bra)this.BrandsDataGrid.SelectedItems[0];
