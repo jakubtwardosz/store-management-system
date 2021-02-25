@@ -23,25 +23,21 @@ namespace store_management_system_final
         {
             InitializeComponent();
 
-
-
             this.BrandsDataGrid.ItemsSource = BrandsService.GetBrandToDisplay();
         }
 
-
-
         BrandsService BrandsService = new BrandsService();
-
-
 
         private void AddBrand(object s, RoutedEventArgs e)
         {
             BrandsService.AddBrand(TextBoxBrand.Text);
+            MessageBox.Show("Added!");
         }
 
         private void ReadBrand(object s, RoutedEventArgs e)
         {
             BrandsDataGrid.ItemsSource = BrandsService.GetBrandToDisplay();
+            MessageBox.Show("Loaded!");
         }
 
         private void brandsGridDataSelectionChanged(object s, SelectionChangedEventArgs e)
@@ -62,19 +58,18 @@ namespace store_management_system_final
         {
             if (BrandsService.selected == null)
             {
-                MessageBox.Show("Zaznacz cos");
+                MessageBox.Show("You must select something!");
                 return;
             }
 
             BrandsService.UpdateBrand(TextBoxBrand.Text);
+            MessageBox.Show("Updated!");
         }
 
         private void DeleteBrand(object s, RoutedEventArgs e)
         {
             brands DeletedBrand = BrandsService.DeleteSelectedBrand();
-            MessageBox.Show($"Usunięto! {DeletedBrand.brand_name}");
+            MessageBox.Show($"Deleted! {DeletedBrand.brand_name}");
         }
-
-
     }
 }

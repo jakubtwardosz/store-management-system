@@ -95,9 +95,6 @@
     <Compile Include="customers.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
     <Compile Include="orders.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
     </Compile>
@@ -123,10 +120,6 @@
       <DependentUpon>StoreManagementSystemModels.edmx</DependentUpon>
     </Compile>
     <Page Include="Brands.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

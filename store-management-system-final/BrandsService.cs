@@ -56,6 +56,7 @@ namespace store_management_system_final
 
         public brands DeleteSelectedBrand()
         {
+            // To do: null 
             StoreDBEntities db = new StoreDBEntities();
 
             var brands = from b in db.brands
@@ -79,6 +80,4 @@ namespace store_management_system_final
         public int Id { get; set; }
         public string Name { get; set; }
     }
-
-
 }

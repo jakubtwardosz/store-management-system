@@ -27,7 +27,8 @@ namespace store_management_system_final
 
         private void OpenBrandWindow(object sender, RoutedEventArgs e)
         {
-
+            Brands brands = new Brands();
+            brands.Show();
         }
 
         private void OpenOrdersWindow(object sender, RoutedEventArgs e)
