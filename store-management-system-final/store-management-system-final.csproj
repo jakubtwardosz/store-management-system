@@ -85,6 +85,7 @@
     <Compile Include="brands.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="BrandsService.cs" />
     <Compile Include="category.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
     </Compile>

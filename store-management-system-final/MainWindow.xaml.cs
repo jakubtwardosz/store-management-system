@@ -20,62 +20,31 @@ namespace store_management_system_final
     /// </summary>
     public partial class MainWindow : Window
     {
-        private brands_displayed selected;
+        BrandsService BrandsService = new BrandsService();
 
 
         public MainWindow()
         {
             InitializeComponent();
 
-            StoreDBEntities db = new StoreDBEntities();
-
-            var brands = from b in db.brands
-                         select new brands_displayed
-                         {
-                             Id = b.brand_id,
-                             Name = b.brand_name
-                         };
-
-
-            this.BrandsDataGrid.ItemsSource = brands.ToList();
+            this.BrandsDataGrid.ItemsSource = BrandsService.GetBrandToDisplay();
         }
 
         private void AddBrand(object s, RoutedEventArgs e)
         {
-            StoreDBEntities db = new StoreDBEntities();
-
-            brands brandsObject = new brands()
-            {
-                brand_name = TextBoxBrand.Text
-            };
-
-            db.brands.Add(brandsObject);
-            db.SaveChanges();
+            BrandsService.AddBrand(TextBoxBrand.Text);           
         }
-        /// <summary>
-        /// Metoda do pobierania brandów
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="e"></param>
+
         private void ReadBrand(object s, RoutedEventArgs e)
         {
-            StoreDBEntities db = new StoreDBEntities();
-
-            var brands = from b in db.brands
-                         select new brands_displayed
-                         {
-                             Id = b.brand_id,
-                             Name = b.brand_name
-                         }; 
-
-            this.BrandsDataGrid.ItemsSource = brands.ToList(); 
+            BrandsDataGrid.ItemsSource = BrandsService.GetBrandToDisplay();
         }
 
         private void brandsGridDataSelectionChanged(object s, SelectionChangedEventArgs e)
         {
-            selected = GetSelectedDisplay(e);
+            BrandsService.selected = GetSelectedDisplay(e);
 
-            TextBoxBrand.Text = selected?.Name;
+            TextBoxBrand.Text = BrandsService.selected?.Name;
         }
 
         private static brands_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
@@ -87,35 +56,18 @@ namespace store_management_system_final
 
         private void UpdateBrand(object s, RoutedEventArgs e)
         {
-            if(selected == null)
+            if(BrandsService.selected == null)
             {
                 MessageBox.Show("Zaznacz cos");
                 return;
             }
 
-            StoreDBEntities db = new StoreDBEntities();
-
-            var brands = from b in db.brands 
-                         where b.brand_id == selected.Id
-                         select b;
-
-            brands toUpdate = brands.FirstOrDefault();
-            // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
-
-            toUpdate.brand_name = TextBoxBrand.Text;
-
-            db.SaveChanges();
+            BrandsService.UpdateBrand(TextBoxBrand.Text);
         }
 
         private void DeleteBrand(object s, RoutedEventArgs e)
         {
 
-        }
-
-        class brands_displayed
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
         }
 
 
