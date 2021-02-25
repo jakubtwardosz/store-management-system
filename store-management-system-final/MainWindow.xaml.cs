@@ -20,57 +20,29 @@ namespace store_management_system_final
     /// </summary>
     public partial class MainWindow : Window
     {
-        BrandsService BrandsService = new BrandsService();
-
-
         public MainWindow()
         {
             InitializeComponent();
-
-            this.BrandsDataGrid.ItemsSource = BrandsService.GetBrandToDisplay();
         }
 
-        private void AddBrand(object s, RoutedEventArgs e)
+        private void OpenBrandWindow(object sender, RoutedEventArgs e)
         {
-            BrandsService.AddBrand(TextBoxBrand.Text);           
+
         }
 
-        private void ReadBrand(object s, RoutedEventArgs e)
+        private void OpenOrdersWindow(object sender, RoutedEventArgs e)
         {
-            BrandsDataGrid.ItemsSource = BrandsService.GetBrandToDisplay();
+
         }
 
-        private void brandsGridDataSelectionChanged(object s, SelectionChangedEventArgs e)
+        private void OpenProductsWindow(object sender, RoutedEventArgs e)
         {
-            BrandsService.selected = GetSelectedDisplay(e);
 
-            TextBoxBrand.Text = BrandsService.selected?.Name;
         }
 
-        private static brands_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
+        private void OpenCustomersWindow(object sender, RoutedEventArgs e)
         {
-            return e.AddedItems.Count == 0
-                ? null
-                : e.AddedItems[0] as brands_displayed;
+
         }
-
-        private void UpdateBrand(object s, RoutedEventArgs e)
-        {
-            if(BrandsService.selected == null)
-            {
-                MessageBox.Show("Zaznacz cos");
-                return;
-            }
-
-            BrandsService.UpdateBrand(TextBoxBrand.Text);
-        }
-
-        private void DeleteBrand(object s, RoutedEventArgs e)
-        {
-            brands DeletedBrand = BrandsService.DeleteSelectedBrand();
-            MessageBox.Show($"Usunięto! {DeletedBrand.brand_name}");
-        }
-
-
     }
 }
