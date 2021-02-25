@@ -53,7 +53,7 @@
                         <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5">
                             <StackPanel>
                                 <Label Content="Actions" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                <Grid Margin="5" x:Name="ActionsBrandGrid">
+                                <Grid Margin="5" x:Name="ActionsBrandGrid"> 
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition/>
                                         <ColumnDefinition/>
