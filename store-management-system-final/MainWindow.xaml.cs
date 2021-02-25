@@ -67,7 +67,8 @@ namespace store_management_system_final
 
         private void DeleteBrand(object s, RoutedEventArgs e)
         {
-
+            brands DeletedBrand = BrandsService.DeleteSelectedBrand();
+            MessageBox.Show($"Usunięto! {DeletedBrand.brand_name}");
         }
 
 

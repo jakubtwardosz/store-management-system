@@ -54,6 +54,23 @@ namespace store_management_system_final
             db.SaveChanges();
         }
 
+        public brands DeleteSelectedBrand()
+        {
+            StoreDBEntities db = new StoreDBEntities();
+
+            var brands = from b in db.brands
+                         where b.brand_id == selected.Id
+                         select b;
+
+            brands toDelete = brands.FirstOrDefault();
+            // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
+
+            db.brands.Remove(toDelete);
+            
+            db.SaveChanges();
+
+            return toDelete;
+        }
     }
 
 
