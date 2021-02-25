@@ -92,11 +92,15 @@
     <Compile Include="category.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrdersService.cs" />
     <Compile Include="customers.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
     </Compile>
     <Compile Include="orders.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Orders.xaml.cs">
+      <DependentUpon>Orders.xaml</DependentUpon>
     </Compile>
     <Compile Include="order_items.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
@@ -135,6 +139,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Orders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

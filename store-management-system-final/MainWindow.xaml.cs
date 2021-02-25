@@ -33,7 +33,8 @@ namespace store_management_system_final
 
         private void OpenOrdersWindow(object sender, RoutedEventArgs e)
         {
-
+            Orders orders = new Orders();
+            orders.Show();
         }
 
         private void OpenProductsWindow(object sender, RoutedEventArgs e)

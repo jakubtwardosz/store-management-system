@@ -1,0 +1,82 @@
+﻿<Window x:Class="store_management_system_final.Orders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:store_management_system_final"
+        mc:Ignorable="d"
+        Title="Orders" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Orders" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <Grid Grid.Row="1" Background="#FFE5E5E5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <DataGrid Grid.Row="0" Margin="5" x:Name="OrdersDataGrid" SelectionChanged="ordersGridDataSelectionChanged"/>
+
+            <Grid Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1" Margin="5">
+                    <StackPanel>
+                        <Label Content="Orders" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Grid Margin="5" x:Name="TextBoxOrdersGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="Customer ID" Margin="0,5,0,5"/>
+                            <TextBox x:Name="CustomerId" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="Order status" Margin="0,0,0,-26"/>
+                            <ComboBox x:Name="OrderStatus" Grid.Column="1" Margin="0,0,0,-26" Grid.Row="1" >
+                                <ComboBoxItem Content="In progress" HorizontalAlignment="Left" Width="185"/>
+                                <ComboBoxItem Content="Completed" HorizontalAlignment="Left" Width="185"/>
+                                <ComboBoxItem Content="Pending" HorizontalAlignment="Left" Width="185"/>
+                            </ComboBox>
+                            <Label Grid.Row="1" Grid.Column="0" Content="Order date" Margin="0,31,0,-57"/>
+                            <DatePicker x:Name="OrderDate" Grid.Column="1" Margin="0,31,0,-67" Grid.Row="1" />
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5">
+                    <StackPanel>
+                        <Label Content="Actions" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Grid Margin="5" x:Name="ActionsOrdersGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Button Content="Create" Grid.Column="0" Grid.Row="0" Click="AddOrder" Padding="5"/>
+                            <Button Content="Read" Grid.Column="1" Grid.Row="0" Click="ReadOrder" Padding="5"/>
+                            <Button Content="Update" Grid.Column="0" Grid.Row="3" Click="UpdateOrder" Padding="5" Margin="0,10,0,-38"/>
+                            <Button Content="Delete" Grid.Column="1" Grid.Row="3" Click="DeleteOrder" Padding="5" Margin="0,10,0,-38"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
