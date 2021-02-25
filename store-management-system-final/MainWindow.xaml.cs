@@ -39,12 +39,14 @@ namespace store_management_system_final
 
         private void OpenProductsWindow(object sender, RoutedEventArgs e)
         {
-
+            Products products = new Products();
+            products.Show();
         }
 
         private void OpenCustomersWindow(object sender, RoutedEventArgs e)
         {
-
+            Customers customers = new Customers();
+            customers.Show();
         }
     }
 }

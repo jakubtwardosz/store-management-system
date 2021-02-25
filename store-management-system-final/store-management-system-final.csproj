@@ -92,6 +92,9 @@
     <Compile Include="category.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Customers.xaml.cs">
+      <DependentUpon>Customers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OrdersService.cs" />
     <Compile Include="customers.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
@@ -108,6 +111,10 @@
     <Compile Include="products.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Products.xaml.cs">
+      <DependentUpon>Products.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsService.cs" />
     <Compile Include="StoreManagementSystemModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -127,6 +134,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Customers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -140,6 +151,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Orders.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Products.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

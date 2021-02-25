@@ -1,0 +1,82 @@
+﻿<Window x:Class="store_management_system_final.Products"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:store_management_system_final"
+        mc:Ignorable="d"
+        Title="Products" Height="550" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Products" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+
+        <Grid Grid.Row="1" Background="#FFE5E5E5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <DataGrid Grid.Row="0" Margin="5" x:Name="ProductsDataGrid" SelectionChanged="productsGridDataSelectionChanged"/>
+
+            <Grid Grid.Row="1">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" BorderBrush="Gray" BorderThickness="1" Margin="5">
+                    <StackPanel>
+                        <Label Content="Products" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Grid Margin="5" x:Name="TextBoxProductsGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Content="Name" Margin="0,5,0,5"/>
+                            <TextBox x:Name="ProductName" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="Brand Id" Margin="0,0,0,-26"/>
+                            <TextBox x:Name="ProductBrandId" Grid.Row="1" Grid.Column="1" Margin="0,0,0,-26"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="Category Id" Margin="0,31,0,-57"/>
+                            <TextBox x:Name="ProductCategoryId" Grid.Row="1" Grid.Column="1" Margin="0,31,0,-57"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="Product price" Margin="0,62,0,-88"/>
+                            <TextBox x:Name="ProductPrice" Grid.Row="1" Grid.Column="1" Margin="0,62,0,-88"/>
+                            <Label Grid.Row="1" Grid.Column="0" Content="Product quantity" Margin="0,93,0,-119"/>
+                            <TextBox x:Name="ProductQuantity" Grid.Row="1" Grid.Column="1" Margin="0,93,0,-119"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1" BorderBrush="Gray" BorderThickness="1" Margin="5">
+                    <StackPanel>
+                        <Label Content="Actions" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Grid Margin="5" x:Name="ActionsProductsGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Button Content="Create" Grid.Column="0" Grid.Row="0" Click="AddProduct" Padding="5"/>
+                            <Button Content="Read" Grid.Column="1" Grid.Row="0" Click="ReadProduct" Padding="5"/>
+                            <Button Content="Update" Grid.Column="0" Grid.Row="3" Click="UpdateProduct" Padding="5" Margin="0,10,0,-38"/>
+                            <Button Content="Delete" Grid.Column="1" Grid.Row="3" Click="DeleteProduct" Padding="5" Margin="0,10,0,-38"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

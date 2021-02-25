@@ -25,6 +25,30 @@ namespace store_management_system_final
 
             return orders.ToList();
         }
+
+        // DateTime?
+
+        public void AddOrder(string customerId, string orderStatus, DateTime? orderDate)
+        {
+            StoreDBEntities db = new StoreDBEntities();
+
+            orders ordersObject =
+                new orders()
+                {
+                    customer_id = int.Parse(customerId),
+                    order_status = orderStatus,
+                    order_date = orderDate
+                };
+
+            db.orders.Add(ordersObject);
+
+            // Błąd
+            db.SaveChanges();
+        }
+
+
+
+
     }
 
     public class orders_displayed

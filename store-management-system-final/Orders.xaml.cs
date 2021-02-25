@@ -31,7 +31,8 @@ namespace store_management_system_final
 
         private void AddOrder(object sender, RoutedEventArgs e)
         {
-
+            OrdersService.AddOrder(CustomerId.Text, OrderStatus.Text, OrderDate.SelectedDate);
+            MessageBox.Show("Added!");
         }
 
         private void ReadOrder(object sender, RoutedEventArgs e)
