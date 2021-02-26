@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace store_management_system_final
 {
@@ -30,10 +19,10 @@ namespace store_management_system_final
 
         private void AddBrand(object s, RoutedEventArgs e)
         {
-            if(string.IsNullOrWhiteSpace(TextBoxBrand.Text))
+            if (string.IsNullOrWhiteSpace(TextBoxBrand.Text))
             {
                 MessageBox.Show("You need to type something!");
-                return; 
+                return;
             }
 
             BrandsService.AddBrand(TextBoxBrand.Text);

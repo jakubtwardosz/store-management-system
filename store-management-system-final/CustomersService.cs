@@ -1,42 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace store_management_system_final
 {
-    class CustomersService
+    /// <summary>
+    /// Class to manage customer in database
+    /// </summary>
+    public class CustomersService
     {
+        /// <summary>
+        /// Fields that remember selected customer
+        /// </summary>
         public customers_displayed selected { get; set; }
 
+        /// <summary>
+        /// Method to get customers to display
+        /// </summary>
+        /// <returns></returns>
         public List<customers_displayed> GetCustomersToDisplay()
         {
-            StoreDBEntities db = new StoreDBEntities();
+            // IDisposable
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                var customers = from c in db.customers
+                                select new customers_displayed
+                                {
+                                    Id = c.customer_id,
+                                    FirstName = c.first_name,
+                                    LastName = c.last_name,
+                                    Email = c.email,
+                                    Street = c.street,
+                                    ZipCode = c.zip_code,
+                                    City = c.city,
+                                    Phone = c.phone
+                                };
 
-            var customers = from c in db.customers
-                            select new customers_displayed
-                            {
-                                Id = c.customer_id,
-                                FirstName = c.first_name,
-                                LastName = c.last_name,
-                                Email = c.email,
-                                Street = c.street,
-                                ZipCode = c.zip_code,
-                                City = c.city,
-                                Phone = c.phone
-                            };
-
-            return customers.ToList();
+                return customers.ToList();
+            }
         }
 
+        /// <summary>
+        /// Validating if fields are correct and adding customer to database
+        /// </summary>
+        /// <param name="FirstName"></param>
+        /// <param name="LastName"></param>
+        /// <param name="Email"></param>
+        /// <param name="Street"></param>
+        /// <param name="ZipCode"></param>
+        /// <param name="City"></param>
+        /// <param name="Phone"></param>
+        /// <returns>True if added, false if not added</returns>
         public bool TryAddCustomer(string FirstName, string LastName, string Email, string Street, string ZipCode, string City, string Phone)
         {
             StoreDBEntities db = new StoreDBEntities();
 
-            if (int.TryParse(Phone, out int phone) 
+            if (int.TryParse(Phone, out int phone)
                 && db.customers.All(customers => customers.email != Email)
-                && Phone.Length == 9 )
+                && Phone.Length == 9)
             {
                 customers customersObject =
                 new customers()
@@ -60,14 +80,24 @@ namespace store_management_system_final
             return false;
 
         }
-
+        /// <summary>
+        /// Validating and updating selected customer in database
+        /// </summary>
+        /// <param name="FirstName"></param>
+        /// <param name="LastName"></param>
+        /// <param name="Email"></param>
+        /// <param name="Street"></param>
+        /// <param name="ZipCode"></param>
+        /// <param name="City"></param>
+        /// <param name="Phone"></param>
+        /// <returns>Null if not validated, Updated version if sucesssed</returns>
         public customers UpdateCustomer(string FirstName, string LastName, string Email, string Street, string ZipCode, string City, string Phone)
         {
             StoreDBEntities db = new StoreDBEntities();
 
             var customers = from c in db.customers
-                         where c.customer_id == selected.Id
-                         select c;
+                            where c.customer_id == selected.Id
+                            select c;
 
             customers toUpdate = customers.FirstOrDefault();
             // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
@@ -90,6 +120,10 @@ namespace store_management_system_final
             return toUpdate;
         }
 
+        /// <summary>
+        /// Deleting selected customer from database
+        /// </summary>
+        /// <returns>Null if not found, deleted value if existed in database</returns>
         public customers DeleteSelectedCustomer()
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -97,8 +131,8 @@ namespace store_management_system_final
             // Pobierz z bazy order_items razem z orderem
 
             var filteredCustomer = from c in db.customers.Include(nameof(customers.orders))
-                                 where c.customer_id == selected.Id
-                                 select c;
+                                   where c.customer_id == selected.Id
+                                   select c;
 
 
             customers toDelete = filteredCustomer.FirstOrDefault();

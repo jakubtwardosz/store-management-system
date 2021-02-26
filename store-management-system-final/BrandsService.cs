@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace store_management_system_final
 {
     public class BrandsService
     {
         public brands_displayed selected { get; set; }
-        
+
         public List<brands_displayed> GetBrandToDisplay()
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -49,7 +46,7 @@ namespace store_management_system_final
             brands toUpdate = brands.FirstOrDefault();
             // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
 
-            if(toUpdate == null)
+            if (toUpdate == null)
             {
                 return null;
             }
@@ -83,7 +80,7 @@ namespace store_management_system_final
             // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
 
             db.brands.Remove(toDelete);
-            
+
             db.SaveChanges();
 
             return toDelete;

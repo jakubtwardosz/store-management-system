@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace store_management_system_final
 {
@@ -19,6 +8,9 @@ namespace store_management_system_final
     /// </summary>
     public partial class Customers : Window
     {
+        /// <summary>
+        /// Inicialize Window from managing customers
+        /// </summary>
         public Customers()
         {
             InitializeComponent();
@@ -28,6 +20,11 @@ namespace store_management_system_final
 
         CustomersService CustomersService = new CustomersService();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddCustomer(object sender, RoutedEventArgs e)
         {
             if (CustomersService.TryAddCustomer(FirstName: CustomerFirstName.Text, LastName: CustomerLastName.Text, Email: CustomerEmail.Text, Street: CustomerStreet.Text, ZipCode: CustomerZipCode.Text, City: CustomerCity.Text, Phone: CustomerPhone.Text))
@@ -58,6 +55,11 @@ namespace store_management_system_final
             CustomerPhone.Text = CustomersService.selected?.Phone.ToString();
         }
 
+        /// <summary>
+        /// Gets selected customer
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns>Return selected or null if not selected</returns>
         public static customers_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
         {
             return e.AddedItems.Count == 0
@@ -106,7 +108,11 @@ namespace store_management_system_final
             MessageBox.Show($"Deleted! {DeletedOrder?.customer_id}");
         }
 
-        private static void NotSelectedMessage()
+
+        /// <summary>
+        /// Comment for display when user try to update or 
+        /// </summary>
+        public static void NotSelectedMessage()
         {
             MessageBox.Show("You must select something!");
         }
