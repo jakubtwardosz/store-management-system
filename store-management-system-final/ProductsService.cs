@@ -3,28 +3,49 @@ using System.Linq;
 
 namespace store_management_system_final
 {
+    /// <summary>
+    /// Class to manage customer in database
+    /// </summary>
     public class ProductsService
     {
+        /// <summary>
+        /// Field that remember selected customer
+        /// </summary>
         public products_displayed selected { get; set; }
 
+        /// <summary>
+        /// Method to get customers to display
+        /// </summary>
+        /// <returns></returns>
         public List<products_displayed> GetProductToDisplay()
         {
-            StoreDBEntities db = new StoreDBEntities();
+            // IDisposable
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                var products = from p in db.products
+                               select new products_displayed
+                               {
+                                   Id = p.product_id,
+                                   ProductName = p.product_name,
+                                   BrandId = p.brand_id,
+                                   CategoryId = p.category_id,
+                                   ProductPrice = p.product_price,
+                                   ProductQuantity = p.product_quantity
+                               };
 
-            var products = from p in db.products
-                           select new products_displayed
-                           {
-                               Id = p.product_id,
-                               ProductName = p.product_name,
-                               BrandId = p.brand_id,
-                               CategoryId = p.category_id,
-                               ProductPrice = p.product_price,
-                               ProductQuantity = p.product_quantity
-                           };
-
-            return products.ToList();
+                return products.ToList();
+            }
         }
 
+        /// <summary>
+        /// Validating if fields are correct and adding product to database
+        /// </summary>
+        /// <param name="ProductName"></param>
+        /// <param name="ProductBrandId"></param>
+        /// <param name="ProductCategoryId"></param>
+        /// <param name="ProductPrice"></param>
+        /// <param name="ProductQuantity"></param>
+        /// <returns>True if added, false if not added</returns>
         public bool TryAddProduct(string ProductName, string ProductBrandId, string ProductCategoryId, string ProductPrice, string ProductQuantity)
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -64,6 +85,10 @@ namespace store_management_system_final
             return false;
         }
 
+        /// <summary>
+        /// Deleting selected product from database
+        /// </summary>
+        /// <returns>Null if not found, deleted value if existed in database</returns>
         public products DeleteSelectedProduct()
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -87,7 +112,13 @@ namespace store_management_system_final
 
             return toDelete;
         }
-
+        /// <summary>
+        /// Validating and updating selected product in database
+        /// </summary>
+        /// <param name="ProductName"></param>
+        /// <param name="ProductPrice"></param>
+        /// <param name="ProductQuantity"></param>
+        /// <returns>Null if not validated, updated version if sucesssed</returns>
         public products UpdateProduct(string ProductName, string ProductPrice, string ProductQuantity)
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -116,6 +147,9 @@ namespace store_management_system_final
         }
     }
 
+    /// <summary>
+    /// Fields displayed from selected products
+    /// </summary>
     public class products_displayed
     {
         public int Id { get; set; }

@@ -8,6 +8,9 @@ namespace store_management_system_final
     /// </summary>
     public partial class Brands : Window
     {
+        /// <summary>
+        /// Inicialize Window for managing brands
+        /// </summary>
         public Brands()
         {
             InitializeComponent();
@@ -41,8 +44,12 @@ namespace store_management_system_final
 
             TextBoxBrand.Text = BrandsService.selected?.Name;
         }
-
-        private static brands_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
+        /// <summary>
+        /// Gets selected brand
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns>Return selected or null if not selected</returns>
+        public static brands_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
         {
             return e.AddedItems.Count == 0
                 ? null
@@ -72,8 +79,10 @@ namespace store_management_system_final
             brands DeletedBrand = BrandsService.DeleteSelectedBrand();
             MessageBox.Show($"Deleted! {DeletedBrand?.brand_name}");
         }
-
-        private static void NotSelectedMessage()
+        /// <summary>
+        /// Comment for display when user try to update
+        /// </summary>
+        public static void NotSelectedMessage()
         {
             MessageBox.Show("You must select something!");
         }

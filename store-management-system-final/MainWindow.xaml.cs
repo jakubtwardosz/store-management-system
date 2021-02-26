@@ -7,6 +7,9 @@ namespace store_management_system_final
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Inicialize Main Window
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

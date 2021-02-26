@@ -9,7 +9,7 @@ namespace store_management_system_final
     public class CustomersService
     {
         /// <summary>
-        /// Fields that remember selected customer
+        /// Field that remember selected customer
         /// </summary>
         public customers_displayed selected { get; set; }
 
@@ -90,7 +90,7 @@ namespace store_management_system_final
         /// <param name="ZipCode"></param>
         /// <param name="City"></param>
         /// <param name="Phone"></param>
-        /// <returns>Null if not validated, Updated version if sucesssed</returns>
+        /// <returns>Null if not validated, updated version if sucesssed</returns>
         public customers UpdateCustomer(string FirstName, string LastName, string Email, string Street, string ZipCode, string City, string Phone)
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -154,13 +154,9 @@ namespace store_management_system_final
 
     }
 
-
-
-
-
-
-
-
+    /// <summary>
+    /// Fields displayed from selected customer
+    /// </summary>
     public class customers_displayed
     {
         public int Id { get; set; }

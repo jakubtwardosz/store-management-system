@@ -8,6 +8,9 @@ namespace store_management_system_final
     /// </summary>
     public partial class Orders : Window
     {
+        /// <summary>
+        /// Inicialize Window for managing orders
+        /// </summary>
         public Orders()
         {
             InitializeComponent();
@@ -49,6 +52,11 @@ namespace store_management_system_final
 
         }
 
+        /// <summary>
+        /// Get selected order
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
         public static orders_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
         {
             return e.AddedItems.Count == 0
@@ -81,8 +89,10 @@ namespace store_management_system_final
             orders DeletedOrder = OrdersService.DeleteSelectedOrder();
             MessageBox.Show($"Deleted! {DeletedOrder?.order_id}");
         }
-
-        private static void NotSelectedMessage()
+        /// <summary>
+        /// Comment for display when user try to update
+        /// </summary>
+        public static void NotSelectedMessage()
         {
             MessageBox.Show("You must select something!");
         }

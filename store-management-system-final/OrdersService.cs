@@ -4,30 +4,47 @@ using System.Linq;
 
 namespace store_management_system_final
 {
+    /// <summary>
+    /// Class to manage order in database
+    /// </summary>
     public class OrdersService
     {
+        /// <summary>
+        /// Field that remember selected order
+        /// </summary>
         public orders_displayed selected { get; set; }
 
+        /// <summary>
+        /// Method to get order to display
+        /// </summary>
+        /// <returns></returns>
         public List<orders_displayed> GetOrdersToDisplay()
         {
-            StoreDBEntities db = new StoreDBEntities();
+            // IDisposable
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                var orders = from o in db.orders
+                             select new orders_displayed
+                             {
+                                 Id = o.order_id,
+                                 CustomerID = o.customer_id,
+                                 OrderStatus = o.order_status,
+                                 OrderDate = o.order_date
+                             };
 
-            // Sprawdzić rzutowanie
+                return orders.ToList();
 
-            var orders = from o in db.orders
-                         select new orders_displayed
-                         {
-                             Id = o.order_id,
-                             CustomerID = o.customer_id,
-                             OrderStatus = o.order_status,
-                             OrderDate = o.order_date
-                         };
-
-            return orders.ToList();
+            }
         }
 
-        // DateTime?
 
+        /// <summary>
+        /// Validating if fields are correct and adding order to database
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="orderStatus"></param>
+        /// <param name="orderDate"></param>
+        /// <returns>True if added, false if not added</returns>
         public bool TryAddOrder(string customerId, string orderStatus, DateTime? orderDate)
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -53,7 +70,13 @@ namespace store_management_system_final
             return false;
 
         }
-
+        /// <summary>
+        /// Updating selected order in database
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <param name="orderStatus"></param>
+        /// <param name="orderDate"></param>
+        /// <returns></returns>
         public orders UpdateOrder(string customerId, string orderStatus, DateTime? orderDate)
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -77,7 +100,10 @@ namespace store_management_system_final
 
             return toUpdate;
         }
-
+        /// <summary>
+        /// Deleting selected order from database
+        /// </summary>
+        /// <returns>Null if not found, deleted value if existed in database</returns>
         public orders DeleteSelectedOrder()
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -103,7 +129,9 @@ namespace store_management_system_final
             return toDelete;
         }
     }
-
+    /// <summary>
+    /// Fields displayed from selected order
+    /// </summary>
     public class orders_displayed
     {
         public int Id { get; set; }

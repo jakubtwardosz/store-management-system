@@ -3,24 +3,40 @@ using System.Linq;
 
 namespace store_management_system_final
 {
+    /// <summary>
+    /// Class to manage brands in database
+    /// </summary>
     public class BrandsService
     {
+        /// <summary>
+        /// Field that remember selected brand
+        /// </summary>
         public brands_displayed selected { get; set; }
 
+        /// <summary>
+        /// Method to get brands to display
+        /// </summary>
+        /// <returns></returns>
         public List<brands_displayed> GetBrandToDisplay()
         {
-            StoreDBEntities db = new StoreDBEntities();
+            // IDisposable
+            using (StoreDBEntities db = new StoreDBEntities())
+            {
+                var brands = from b in db.brands
+                             select new brands_displayed
+                             {
+                                 Id = b.brand_id,
+                                 Name = b.brand_name
+                             };
 
-            var brands = from b in db.brands
-                         select new brands_displayed
-                         {
-                             Id = b.brand_id,
-                             Name = b.brand_name
-                         };
-
-            return brands.ToList();
+                return brands.ToList();
+            }
         }
 
+        /// <summary>
+        /// Adding brand to database
+        /// </summary>
+        /// <param name="name"></param>
         public void AddBrand(string name)
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -35,6 +51,11 @@ namespace store_management_system_final
             db.SaveChanges();
         }
 
+        /// <summary>
+        /// Updating selected brand in database
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>Null if not selected, updated version if sucesssed</returns>
         public brands UpdateBrand(string name)
         {
             StoreDBEntities db = new StoreDBEntities();
@@ -58,6 +79,10 @@ namespace store_management_system_final
             return toUpdate;
         }
 
+        /// <summary>
+        /// Deleting selected brand from database
+        /// </summary>
+        /// <returns>Null if not found, deleted value if existed in database</returns>
         public brands DeleteSelectedBrand()
         {
 
@@ -87,7 +112,9 @@ namespace store_management_system_final
         }
     }
 
-
+    /// <summary>
+    ///  Field displayed from selected brand
+    /// </summary>
     public class brands_displayed
     {
         public int Id { get; set; }

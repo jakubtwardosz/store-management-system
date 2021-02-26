@@ -9,7 +9,7 @@ namespace store_management_system_final
     public partial class Customers : Window
     {
         /// <summary>
-        /// Inicialize Window from managing customers
+        /// Inicialize Window for managing customers
         /// </summary>
         public Customers()
         {
@@ -20,11 +20,6 @@ namespace store_management_system_final
 
         CustomersService CustomersService = new CustomersService();
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void AddCustomer(object sender, RoutedEventArgs e)
         {
             if (CustomersService.TryAddCustomer(FirstName: CustomerFirstName.Text, LastName: CustomerLastName.Text, Email: CustomerEmail.Text, Street: CustomerStreet.Text, ZipCode: CustomerZipCode.Text, City: CustomerCity.Text, Phone: CustomerPhone.Text))
@@ -67,8 +62,6 @@ namespace store_management_system_final
                 : e.AddedItems[0] as customers_displayed;
         }
 
-
-
         private void ReadCustomer(object sender, RoutedEventArgs e)
         {
             CustomersDataGrid.ItemsSource = CustomersService.GetCustomersToDisplay();
@@ -110,7 +103,7 @@ namespace store_management_system_final
 
 
         /// <summary>
-        /// Comment for display when user try to update or 
+        /// Comment for display when user try to update 
         /// </summary>
         public static void NotSelectedMessage()
         {

@@ -8,6 +8,9 @@ namespace store_management_system_final
     /// </summary>
     public partial class Products : Window
     {
+        /// <summary>
+        /// Inicialize Window for managing products
+        /// </summary>
         public Products()
         {
             InitializeComponent();
@@ -40,7 +43,12 @@ namespace store_management_system_final
 
         }
 
-        private static products_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
+        /// <summary>
+        /// Get selected product
+        /// </summary>
+        /// <param name="e"></param>
+        /// <returns></returns>
+        public static products_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
         {
             return e.AddedItems.Count == 0
                 ? null
@@ -82,7 +90,10 @@ namespace store_management_system_final
 
         }
 
-        private static void NotSelectedMessage()
+        /// <summary>
+        /// Comment for display when user try to update
+        /// </summary>
+        public static void NotSelectedMessage()
         {
             MessageBox.Show("You must select something!");
         }
