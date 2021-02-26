@@ -95,6 +95,7 @@
     <Compile Include="Customers.xaml.cs">
       <DependentUpon>Customers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomersService.cs" />
     <Compile Include="OrdersService.cs" />
     <Compile Include="customers.cs">
       <DependentUpon>StoreManagementSystemModels.tt</DependentUpon>

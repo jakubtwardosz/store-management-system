@@ -63,6 +63,8 @@ namespace store_management_system_final
                          where b.brand_id == selected.Id
                          select b;
 
+            // System.Reflection.TargetException: „Dla metody niestatycznej wymagany jest obiekt docelowy.”
+
             brands toDelete = brands.FirstOrDefault();
             // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
 

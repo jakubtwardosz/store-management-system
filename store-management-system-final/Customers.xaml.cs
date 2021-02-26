@@ -22,7 +22,11 @@ namespace store_management_system_final
         public Customers()
         {
             InitializeComponent();
+
+            this.CustomersDataGrid.ItemsSource = CustomersService.GetCustomersToDisplay();
         }
+
+        CustomersService CustomersService = new CustomersService();
 
         private void AddCustomer(object sender, RoutedEventArgs e)
         {

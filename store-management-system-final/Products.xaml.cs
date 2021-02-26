@@ -22,7 +22,11 @@ namespace store_management_system_final
         public Products()
         {
             InitializeComponent();
+
+            this.ProductsDataGrid.ItemsSource = ProductsService.GetProductToDisplay();
         }
+
+        ProductsService ProductsService = new ProductsService();
 
         private void AddProduct(object sender, RoutedEventArgs e)
         {
