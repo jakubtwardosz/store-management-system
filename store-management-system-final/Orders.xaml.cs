@@ -70,12 +70,32 @@ namespace store_management_system_final
 
         private void UpdateOrder(object sender, RoutedEventArgs e)
         {
+            if (OrdersService.selected == null)
+            {
+                NotSelectedMessage();
+                return;
+            }
 
+            OrdersService.UpdateOrder(CustomerId.Text, OrderStatus.Text, OrderDate.SelectedDate);
+
+            MessageBox.Show("Updated!");
         }
 
         private void DeleteOrder(object sender, RoutedEventArgs e)
         {
+            if (OrdersService.selected == null)
+            {
+                NotSelectedMessage();
+                return;
+            }
 
+            orders DeletedOrder = OrdersService.DeleteSelectedOrder();
+            MessageBox.Show($"Deleted! {DeletedOrder?.order_id}");
+        }
+
+        private static void NotSelectedMessage()
+        {
+            MessageBox.Show("You must select something!");
         }
     }
 }

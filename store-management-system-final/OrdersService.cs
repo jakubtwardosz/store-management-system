@@ -33,8 +33,8 @@ namespace store_management_system_final
         public bool TryAddOrder(string customerId, string orderStatus, DateTime? orderDate)
         {
             StoreDBEntities db = new StoreDBEntities();
-            
-            if (int.TryParse(customerId, out int Id) 
+
+            if (int.TryParse(customerId, out int Id)
                 && db.customers.Any(customer => customer.customer_id == Id))
             {
                 orders ordersObject =
@@ -54,6 +54,55 @@ namespace store_management_system_final
 
             return false;
 
+        }
+
+        public orders UpdateOrder(string customerId, string orderStatus, DateTime? orderDate)
+        {
+            StoreDBEntities db = new StoreDBEntities();
+
+            var orders = from o in db.orders
+                         where o.order_id == selected.Id
+                         select o;
+
+            orders toUpdate = orders.FirstOrDefault();
+            // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
+
+            if (toUpdate == null)
+            {
+                return null;
+            }
+
+            toUpdate.order_date = orderDate;
+            toUpdate.order_status = orderStatus;
+
+            db.SaveChanges();
+
+            return toUpdate;
+        }
+
+        public orders DeleteSelectedOrder()
+        {
+            StoreDBEntities db = new StoreDBEntities();
+
+            // Pobierz z bazy order_items razem z orderem
+
+            var filteredOrders = from o in db.orders.Include(nameof(orders.order_items))
+                                 where o.order_id == selected.Id
+                                 select o;
+
+
+            orders toDelete = filteredOrders.FirstOrDefault();
+
+            if (toDelete == null)
+            {
+                return null;
+            }
+
+            db.orders.Remove(toDelete);
+
+            db.SaveChanges();
+
+            return toDelete;
         }
     }
 
