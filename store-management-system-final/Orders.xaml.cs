@@ -31,19 +31,42 @@ namespace store_management_system_final
 
         private void AddOrder(object sender, RoutedEventArgs e)
         {
-            OrdersService.AddOrder(CustomerId.Text, OrderStatus.Text, OrderDate.SelectedDate);
-            MessageBox.Show("Added!");
+            if (OrdersService.TryAddOrder(CustomerId.Text, OrderStatus.Text, OrderDate.SelectedDate))
+            {
+                MessageBox.Show("Added!");
+            }
+            else
+            {
+                MessageBox.Show("Customer not found!");
+            }            
         }
 
         private void ReadOrder(object sender, RoutedEventArgs e)
         {
-
+            OrdersDataGrid.ItemsSource = OrdersService.GetOrdersToDisplay();
+            MessageBox.Show("Loaded!");
         }
 
         private void ordersGridDataSelectionChanged(object s, SelectionChangedEventArgs e)
         {
+            OrdersService.selected = GetSelectedDisplay(e);
+
+            var selected = OrdersService.selected;
+            //TextBoxBrand.Text = BrandsService.selected?.Name;
+
+            CustomerId.Text = selected?.CustomerID.ToString();
+            OrderStatus.Text = selected?.OrderStatus;
+            OrderDate.Text = selected?.OrderDate.ToString();
 
         }
+
+        public static orders_displayed GetSelectedDisplay(SelectionChangedEventArgs e)
+        {
+            return e.AddedItems.Count == 0
+                ? null
+                : e.AddedItems[0] as orders_displayed;
+        }
+
 
         private void UpdateOrder(object sender, RoutedEventArgs e)
         {

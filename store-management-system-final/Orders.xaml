@@ -45,9 +45,9 @@
                             <TextBox x:Name="CustomerId" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"/>
                             <Label Grid.Row="1" Grid.Column="0" Content="Order status" Margin="0,0,0,-26"/>
                             <ComboBox x:Name="OrderStatus" Grid.Column="1" Margin="0,0,0,-26" Grid.Row="1" >
-                                <ComboBoxItem Content="In progress" HorizontalAlignment="Left" Width="185"/>
-                                <ComboBoxItem Content="Completed" HorizontalAlignment="Left" Width="185"/>
-                                <ComboBoxItem Content="Pending" HorizontalAlignment="Left" Width="185"/>
+                                <ComboBoxItem Content="Nowy" HorizontalAlignment="Left" Width="185"/>
+                                <ComboBoxItem Content="W realizacji" HorizontalAlignment="Left" Width="185"/>
+                                <ComboBoxItem Content="Zrealizowane" HorizontalAlignment="Left" Width="185"/>
                             </ComboBox>
                             <Label Grid.Row="1" Grid.Column="0" Content="Order date" Margin="0,31,0,-57"/>
                             <DatePicker x:Name="OrderDate" Grid.Column="1" Margin="0,31,0,-67" Grid.Row="1" />

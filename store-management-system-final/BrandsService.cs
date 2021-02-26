@@ -38,7 +38,7 @@ namespace store_management_system_final
             db.SaveChanges();
         }
 
-        public void UpdateBrand(string name)
+        public brands UpdateBrand(string name)
         {
             StoreDBEntities db = new StoreDBEntities();
 
@@ -49,13 +49,21 @@ namespace store_management_system_final
             brands toUpdate = brands.FirstOrDefault();
             // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
 
+            if(toUpdate == null)
+            {
+                return null;
+            }
+
             toUpdate.brand_name = name;
 
             db.SaveChanges();
+
+            return toUpdate;
         }
 
         public brands DeleteSelectedBrand()
         {
+
             // To do: null 
             StoreDBEntities db = new StoreDBEntities();
 
@@ -66,6 +74,12 @@ namespace store_management_system_final
             // System.Reflection.TargetException: „Dla metody niestatycznej wymagany jest obiekt docelowy.”
 
             brands toDelete = brands.FirstOrDefault();
+
+            if (toDelete == null)
+            {
+                return null;
+            }
+
             // brands toUpdate2 = db.brands.FirstOrDefault(b => b.brand_id == selected.Id);
 
             db.brands.Remove(toDelete);

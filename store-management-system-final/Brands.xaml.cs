@@ -30,6 +30,12 @@ namespace store_management_system_final
 
         private void AddBrand(object s, RoutedEventArgs e)
         {
+            if(string.IsNullOrWhiteSpace(TextBoxBrand.Text))
+            {
+                MessageBox.Show("You need to type something!");
+                return; 
+            }
+
             BrandsService.AddBrand(TextBoxBrand.Text);
             MessageBox.Show("Added!");
         }
@@ -58,7 +64,7 @@ namespace store_management_system_final
         {
             if (BrandsService.selected == null)
             {
-                MessageBox.Show("You must select something!");
+                NotSelectedMessage();
                 return;
             }
 
@@ -68,8 +74,19 @@ namespace store_management_system_final
 
         private void DeleteBrand(object s, RoutedEventArgs e)
         {
+            if (BrandsService.selected == null)
+            {
+                NotSelectedMessage();
+                return;
+            }
+
             brands DeletedBrand = BrandsService.DeleteSelectedBrand();
-            MessageBox.Show($"Deleted! {DeletedBrand.brand_name}");
+            MessageBox.Show($"Deleted! {DeletedBrand?.brand_name}");
+        }
+
+        private static void NotSelectedMessage()
+        {
+            MessageBox.Show("You must select something!");
         }
     }
 }
